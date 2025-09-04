@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchBox = ({ onSearch }) => {
+const SearchBox = ({ onSearch, onRandomMovie }) => {
   const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,10 +18,17 @@ const SearchBox = ({ onSearch }) => {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="🔍 Search for movies... (e.g., 'Marvel', 'Comedy 2023')"
+            placeholder="Search for movies... (e.g., 'Marvel', 'Comedy 2023')"
             className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all shadow-sm"
           />
         </div>
+        <button
+          type="button"
+          onClick={onRandomMovie}
+          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-md font-medium transition-colors"
+        >
+          Random Movie
+        </button>
         <button
           type="submit"
           className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all shadow-lg"
